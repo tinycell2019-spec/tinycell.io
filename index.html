@@ -1,69 +1,221 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
+  <title>Tinycell – Mobile Game Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tinycell</title>
-  <meta name="description" content="Tinycell - Mobile game studio" />
+  <meta name="description" content="Tinycell is a mobile game studio specializing in casual and puzzle games." />
+
   <style>
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#0b0f19; color:#e8eefc; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 56px 20px; }
-    .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 28px; }
-    .top { display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
-    .logo { font-weight:800; letter-spacing:0.3px; font-size: 22px; }
-    a { color:#9cc2ff; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    h1 { font-size: 42px; line-height:1.1; margin: 18px 0 12px; }
-    p { line-height: 1.65; margin: 0 0 10px; color: rgba(232,238,252,0.88); }
-    .grid { display:grid; grid-template-columns: 1fr; gap: 16px; margin-top: 18px; }
-    @media (min-width: 860px) { .grid { grid-template-columns: 1.2fr 0.8fr; } }
-    .btn { display:inline-block; padding: 12px 14px; border-radius: 12px; background:#1a5cff; color:#fff; font-weight:700; }
-    .btn:hover { text-decoration:none; filter: brightness(1.05); }
-    .muted { font-size: 13px; color: rgba(232,238,252,0.65); margin-top: 10px; }
-    .section { margin-top: 20px; }
-    ul { margin: 8px 0 0 18px; }
-    li { margin: 6px 0; }
-    footer { margin-top: 26px; font-size: 13px; color: rgba(232,238,252,0.6); }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0b0f19;
+      color: #e8eefc;
+    }
+    a { color: #9cc2ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: 0.4px;
+    }
+
+    h1 {
+      font-size: 44px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+    }
+
+    p {
+      line-height: 1.65;
+      margin: 0 0 12px;
+      color: rgba(232,238,252,0.9);
+    }
+
+    ul {
+      margin: 8px 0 0 18px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .section {
+      margin-top: 48px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: #1a5cff;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      filter: brightness(1.08);
+    }
+
+    .muted {
+      font-size: 13px;
+      color: rgba(232,238,252,0.6);
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-top: 24px;
+    }
+
+    .game img {
+      width: 100%;
+      max-width: 960px;
+      border-radius: 18px;
+      margin-bottom: 16px;
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 13px;
+      color: rgba(232,238,252,0.6);
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="card">
-      <div class="top">
+
+      <!-- Header -->
+      <header>
         <div class="logo">Tinycell</div>
         <div>
+          <a href="#games">Games</a> ·
           <a href="#contact">Contact</a>
         </div>
-      </div>
+      </header>
 
+      <!-- Hero -->
       <h1>Mobile Game Studio</h1>
-      <p>Tinycell builds casual & puzzle mobile games.</p>
-      <p class="muted">Official site for developer contact & product info.</p>
+      <p class="muted">
+        Official website for Tinycell mobile games and developer contact.
+      </p>
 
-      <div class="grid">
-        <div class="section">
-          <h2 style="margin:0 0 8px;">About</h2>
-          <p>We focus on accessible, high-quality experiences designed for a wide audience.</p>
-          <ul>
-            <li>Unity-based development</li>
-            <li>Casual & puzzle genres</li>
-            <li>Global release-ready pipeline</li>
-          </ul>
-        </div>
+      <!-- About -->
+      <div class="section">
+        <h2>About Tinycell</h2>
 
-        <div class="section" id="contact">
-          <h2 style="margin:0 0 8px;">Contact</h2>
-          <p>Email: <a href="mailto:contact@tinycell.io">contact@tinycell.io</a></p>
-          <p>Business inquiries & support welcomed.</p>
-          <p style="margin-top:12px;">
-            <a class="btn" href="mailto:contact@tinycell.io">Email us</a>
-          </p>
+        <p>
+          Tinycell is a mobile game development studio specializing in casual and puzzle games.
+        </p>
+
+        <p>
+          We aim to build efficient and effective workflows by actively leveraging AI-powered tools
+          across our entire team.
+        </p>
+
+        <p>
+          Our focus is on delivering accessible, high-quality game experiences designed
+          for a broad global audience.
+        </p>
+
+        <ul>
+          <li>Unity &amp; Cocos-based development</li>
+          <li>Casual and puzzle genres</li>
+          <li>Global-ready production and release pipeline</li>
+        </ul>
+      </div>
+
+      <!-- Games -->
+      <div id="games" class="section">
+        <h2>Our Games</h2>
+
+        <div class="games">
+
+          <!-- Game Item -->
+          <div class="game">
+            <img src="games/game1_large.png" alt="Game Title">
+            <h3>Game Title</h3>
+            <p>
+              A casual or puzzle mobile game developed by Tinycell.
+              Designed for accessibility and high-quality gameplay.
+            </p>
+            <p>
+              <a class="btn" href="#" target="_blank">Play</a>
+            </p>
+          </div>
+
+          <!-- Game Item -->
+          <div class="game">
+            <img src="games/game2_large.png" alt="Another Game">
+            <h3>Another Game</h3>
+            <p>
+              Another mobile title currently in development.
+              More details will be announced soon.
+            </p>
+            <p class="muted">Coming soon</p>
+          </div>
+
         </div>
       </div>
 
-      <footer>© <span id="y"></span> Tinycell. All rights reserved.</footer>
+      <!-- Contact -->
+      <div id="contact" class="section">
+        <h2>Contact</h2>
+        <p>
+          Email:
+          <a href="mailto:contact@tinycell.io">contact@tinycell.io</a>
+        </p>
+        <p>
+          Location: South Korea
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        © <span id="year"></span> Tinycell. All rights reserved.
+      </footer>
+
     </div>
   </div>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
