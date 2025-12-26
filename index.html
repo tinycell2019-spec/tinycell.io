@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tinycell</title>
+
   <style>
     :root{
       --bg:#121829;
@@ -11,92 +12,98 @@
       --text:#e9eefc;
       --muted:#b7c0de;
       --line:rgba(255,255,255,.10);
-      --accent:#6ea8ff;
-      --max: 1040px;
+      --max:1040px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+        "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
       background:var(--bg);
       color:var(--text);
       line-height:1.55;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px;}
+
+    a{color:inherit;text-decoration:none}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 18px 60px;
+    }
+
     header{
       padding:10px 0 26px;
       border-bottom:1px solid var(--line);
       margin-bottom:26px;
     }
+
+    /* 🔹 로고를 게임 이미지처럼 가로 100% */
     .logo{
       width:100%;
-      max-width:520px;
+      height:auto;
       display:block;
-      margin:0 auto 10px;
+      border-radius:16px;
     }
-    .brand{
-      text-align:center;
-      margin-top:8px;
-    }
-    .brand h1{
-      margin:10px 0 6px;
-      font-size:28px;
-      letter-spacing:.2px;
-    }
-    .brand p{
-      margin:0;
-      color:var(--muted);
-      font-size:14.5px;
-    }
+
     section{margin-top:26px;}
+
     h2{
       margin:0 0 12px;
       font-size:18px;
       letter-spacing:.2px;
     }
+
     .about{
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--line);
       border-radius:16px;
       padding:18px 16px;
     }
+
     .about ul{
       margin:10px 0 0;
       padding-left:18px;
       color:var(--muted);
     }
+
     .games{
       display:flex;
       flex-direction:column;
       gap:18px;
       margin-top:14px;
     }
+
     .game{
       background:var(--card);
       border:1px solid var(--line);
       border-radius:16px;
       overflow:hidden;
     }
+
     .game .pad{
       padding:16px 16px 12px;
     }
+
     .game h3{
       margin:0 0 8px;
       font-size:18px;
     }
+
     .game p{
       margin:0 0 12px;
       color:var(--muted);
       font-size:14.5px;
     }
 
-    /* 이미지: 타이틀 아래 + 가로 꽉 차게 */
     .game a.imageLink{
       display:block;
       width:100%;
       border-top:1px solid var(--line);
     }
+
     .game img{
       width:100%;
       height:auto;
@@ -115,6 +122,7 @@
       border-radius:16px;
       padding:18px 16px;
     }
+
     .contactRow{
       display:flex;
       gap:10px;
@@ -122,6 +130,7 @@
       align-items:center;
       margin-top:10px;
     }
+
     .pill{
       display:inline-flex;
       align-items:center;
@@ -130,18 +139,25 @@
       border-radius:999px;
       border:1px solid var(--line);
       background:rgba(0,0,0,.12);
-      color:var(--text);
       font-size:14px;
     }
+
     .pill strong{font-weight:600}
-    .pill:hover{border-color:rgba(255,255,255,.22)}
+
     .map{
       margin-top:12px;
       border-radius:16px;
       overflow:hidden;
       border:1px solid var(--line);
     }
-    iframe{width:100%; height:360px; border:0; display:block;}
+
+    iframe{
+      width:100%;
+      height:360px;
+      border:0;
+      display:block;
+    }
+
     footer{
       margin-top:26px;
       color:var(--muted);
@@ -153,16 +169,17 @@
 
 <body>
   <div class="wrap">
-    <header>
-      <!-- 중요: index.html과 같은 폴더에 assets/가 있어야 함 -->
-      <img class="logo" src="./assets/tinycell.logo.png" alt="Tinycell Logo" />
 
-      <div class="brand">
-        <h1>Tinycell</h1>
-        <p>Mobile game studio focused on casual &amp; puzzle experiences.</p>
-      </div>
+    <!-- HEADER : 로고만 표시 -->
+    <header>
+      <img
+        class="logo"
+        src="./assets/tinycell.logo.png"
+        alt="Tinycell Logo"
+      />
     </header>
 
+    <!-- ABOUT -->
     <section>
       <h2>About Tinycell</h2>
       <div class="about">
@@ -179,67 +196,73 @@
       </div>
     </section>
 
+    <!-- GAMES -->
     <section>
       <h2>Games</h2>
 
       <div class="games">
-        <!-- 1) SLOT LIFE -->
+
+        <!-- SLOT LIFE -->
         <article class="game">
           <div class="pad">
             <h3>SLOT LIFE : Jackpot Journey</h3>
             <p>
               The world's first story-driven slot game!<br/>
-              Go from a broke to a legendary casino tycoon! Travel through hotels and casinos, chase your dreams of hitting it big, and grow your wealth and title through smart choices and strategy.
+              Go from a broke to a legendary casino tycoon!
+              Travel through hotels and casinos, chase your dreams of hitting it big,
+              and grow your wealth and title through smart choices and strategy.
             </p>
           </div>
-          <a class="imageLink" href="https://play.google.com/store/apps/details?id=com.tinycell.slotlifejackpot&pcampaignid=web_share" target="_blank" rel="noopener">
+          <a class="imageLink"
+             href="https://play.google.com/store/apps/details?id=com.tinycell.slotlifejackpot"
+             target="_blank" rel="noopener">
             <img src="./assets/game.slotlife.png" alt="SLOT LIFE : Jackpot Journey" />
           </a>
         </article>
 
-        <!-- 2) Match Cat -->
+        <!-- MATCH CAT -->
         <article class="game">
           <div class="pad">
             <h3>Match Cat : Triple Matching</h3>
             <p>
-              Welcome to Matchy Cat!<br/>
-              Relax and enjoy a cute matching puzzle game filled with adorable cat-themed items. Match three of a kind, clear the board, and unlock new sets as you play!
+              Relax and enjoy a cute matching puzzle game filled with adorable cat-themed items.
+              Match three of a kind, clear the board, and unlock new sets as you play!
             </p>
           </div>
-          <a class="imageLink" href="https://play.google.com/store/apps/details?id=com.tinycell.matchcat&pcampaignid=web_share" target="_blank" rel="noopener">
+          <a class="imageLink"
+             href="https://play.google.com/store/apps/details?id=com.tinycell.matchcat"
+             target="_blank" rel="noopener">
             <img src="./assets/game.matchcat.png" alt="Match Cat : Triple Matching" />
           </a>
         </article>
 
-        <!-- 3) Watermelon Maker -->
+        <!-- WATERMELON MAKER -->
         <article class="game">
           <div class="pad">
             <h3>Watermelon Maker : Fruit Merge</h3>
             <p>
-              “Watermelon Maker” is an addictive merge puzzle game where you combine small fruits to grow bigger fruits and ultimately create sweet, juicy watermelons.
-              With simple controls, anyone can enjoy the game, yet strategic merging adds depth and challenge.
-              Cute graphics and vibrant colors make every play visually delightful, and the satisfying merging animation gives a real sense of achievement and fun.
+              Combine small fruits to grow bigger ones and ultimately create sweet,
+              juicy watermelons. Simple controls with satisfying merge gameplay.
             </p>
           </div>
-          <a class="imageLink" href="https://play.google.com/store/apps/details?id=com.tinycell.watermelonmaker&pcampaignid=web_share" target="_blank" rel="noopener">
+          <a class="imageLink"
+             href="https://play.google.com/store/apps/details?id=com.tinycell.watermelonmaker"
+             target="_blank" rel="noopener">
             <img src="./assets/game.watermelonmaker.png" alt="Watermelon Maker : Fruit Merge" />
           </a>
         </article>
-      </div>
 
-      <div class="hint">
-        Tip: GitHub Pages/server는 파일명 대소문자를 구분합니다. assets 안의 실제 파일명과 src가 한 글자도 달라지면 깨져요.
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section>
-      <h2>Contact</h2>
+      <h2>Contact Us</h2>
       <div class="contact">
         <div class="contactRow">
           <a class="pill" href="mailto:contact@tinycell.io">
             <strong>Email</strong> contact@tinycell.io
           </a>
-
           <span class="pill">
             <strong>Address</strong> 510 53 Digital-ro 31-gil, Guro-gu 08375 Seoul
           </span>
@@ -258,6 +281,7 @@
     <footer>
       © Tinycell. All rights reserved.
     </footer>
+
   </div>
 </body>
 </html>
