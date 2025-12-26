@@ -1,271 +1,322 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Tinycell – Mobile Game Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Tinycell is a mobile game development studio specializing in casual and puzzle games." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tinycell</title>
+  <meta name="description" content="Tinycell develops casual and puzzle mobile games." />
 
   <style>
-    body {
+    :root{
+      --bg:#121829;
+      --card:#182038;
+      --text:#EAF0FF;
+      --muted:#A9B4D0;
+      --line:rgba(255,255,255,0.10);
+      --accent:#6EE7FF;
+      --shadow: 0 14px 40px rgba(0,0,0,0.45);
+      --radius: 18px;
+      --max: 1080px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width: var(--max); margin: 0 auto; padding: 28px 18px 60px;}
+    .top{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+      padding: 18px 0 10px;
+    }
+
+    .logo{
+      width: min(560px, 92vw);
+      height: auto;
+      display:block;
+      filter: drop-shadow(0 12px 30px rgba(0,0,0,0.45));
+    }
+
+    .brand h1{
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: #0b0f19;
-      color: #e8eefc;
+      font-size: clamp(26px, 4vw, 40px);
+      letter-spacing: 0.2px;
+      text-align:center;
+    }
+    .brand p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      text-align:center;
+      max-width: 760px;
     }
 
-    a { color: #9cc2ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .wrap {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 56px 20px;
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 40px;
+    .section-title{
+      margin: 34px 0 12px;
+      font-size: 18px;
+      color: var(--muted);
+      letter-spacing: 0.2px;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 40px;
+    .about ul{
+      margin: 10px 0 0;
+      padding: 0 0 0 18px;
+      color: var(--muted);
     }
 
-    .logo {
-      font-weight: 800;
-      font-size: 22px;
-    }
-
-    h1 {
-      font-size: 44px;
-      margin: 0 0 16px;
-    }
-
-    h2 { margin: 0 0 16px; }
-    h3 { margin: 0 0 8px; }
-
-    p {
-      line-height: 1.65;
-      margin: 0 0 12px;
-      color: rgba(232,238,252,0.9);
-    }
-
-    ul { margin: 8px 0 0 18px; }
-    li { margin: 6px 0; }
-
-    .section { margin-top: 56px; }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 12px;
-      background: #1a5cff;
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .btn:hover {
-      text-decoration: none;
-      filter: brightness(1.08);
-    }
-
-    .games {
-      display: grid;
+    .games{
+      display:grid;
       grid-template-columns: 1fr;
-      gap: 56px;
-      margin-top: 24px;
+      gap: 18px;
+      margin-top: 12px;
     }
 
-    .game img {
-      width: 100%;
-      max-width: 1000px;
-      border-radius: 18px;
-      margin-bottom: 16px;
-      background: rgba(255,255,255,0.08);
+    .game{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 18px;
     }
 
-    .map {
-      margin-top: 24px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
+    .game h3{
+      margin: 0;
+      font-size: 20px;
+    }
+    .game p{
+      margin: 6px 0 0;
+      color: var(--muted);
     }
 
-    footer {
-      margin-top: 56px;
+    .thumb{
+      border-radius: 14px;
+      overflow:hidden;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.15);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .thumb:hover{
+      transform: translateY(-2px);
+      border-color: rgba(110,231,255,0.55);
+    }
+    .thumb img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .hint{
       font-size: 13px;
-      color: rgba(232,238,252,0.6);
+      color: rgba(233,240,255,0.70);
+      margin-top: 8px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .btn-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(110,231,255,0.55);
+    }
+
+    .map{
+      margin-top: 12px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: rgba(0,0,0,0.15);
+    }
+    .map iframe{
+      width:100%;
+      height: 360px;
+      border:0;
+      display:block;
+    }
+
+    footer{
+      margin-top: 28px;
+      text-align:center;
+      color: rgba(233,240,255,0.55);
+      font-size: 12px;
+    }
+
+    @media (min-width: 860px){
+      .games{ grid-template-columns: 1fr; }
+      .game{
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items:center;
+      }
+      .game .text{ padding-right: 12px; }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="card">
 
-      <!-- Header -->
-      <header>
-        <div class="logo">Tinycell</div>
-        <div>
-          <a href="#games">Games</a> ·
-          <a href="#contact">Contact</a>
-        </div>
-      </header>
+    <!-- TOP / LOGO -->
+    <header class="top">
+      <!-- 로고 이미지 파일: tinycell.logo.png (repo 루트에 업로드) -->
+      <img class="logo" src="tinycell.logo.png" alt="Tinycell logo" />
 
-      <!-- Hero -->
-      <h1>Mobile Game Studio</h1>
-
-      <!-- About -->
-      <div class="section">
-        <h2>About Tinycell</h2>
-
+      <div class="brand">
+        <h1>Tinycell</h1>
         <p>
-          Tinycell is a mobile game development studio specializing in casual and puzzle games.
+          We develop casual and puzzle mobile games. Our team embraces AI tools to work efficiently and effectively,
+          focusing on accessible, high-quality gameplay experiences for a broad global audience.
         </p>
-
-        <p>
-          We aim to build efficient and effective workflows by actively leveraging AI-powered tools
-          across our entire team.
-        </p>
-
-        <p>
-          Our focus is on delivering accessible, high-quality game experiences designed
-          for a broad global audience.
-        </p>
-
-        <ul>
-          <li>Unity &amp; Cocos-based development</li>
-          <li>Casual and puzzle genres</li>
-          <li>Global-ready production and release pipeline</li>
-        </ul>
       </div>
+    </header>
 
-      <!-- Games -->
-      <div id="games" class="section">
-        <h2>Our Games</h2>
+    <!-- ABOUT -->
+    <div class="section-title">About Tinycell</div>
+    <section class="card about">
+      <ul>
+        <li>Unity &amp; Cocos-based development</li>
+        <li>Casual &amp; puzzle genres</li>
+        <li>Production pipeline ready for global release</li>
+      </ul>
+    </section>
 
-        <div class="games">
+    <!-- GAMES -->
+    <div class="section-title">Games</div>
+    <section class="games">
 
-          <!-- GAME TEMPLATE (1~10) -->
-          <!-- Game 1 -->
-          <div class="game">
-            <img src="games/game1.png" alt="Game 1">
-            <h3>Game Title 1</h3>
-            <p>Short description for game 1 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
+      <!-- 1) SLOT LIFE -->
+      <article class="card game">
+        <div class="text">
+          <h3>SLOT LIFE : Jackpot Journey</h3>
+          <p>
+            The world's first story-driven slot game!<br/>
+            Go from a broke to a legendary casino tycoon! Travel through hotels and casinos, chase your dreams of hitting it big,
+            and grow your wealth and title through smart choices and strategy.
+          </p>
+          <div class="hint">Tip: Click the image to open Google Play.</div>
+        </div>
 
-          <div class="game">
-            <img src="games/game2.png" alt="Game 2">
-            <h3>Game Title 2</h3>
-            <p>Short description for game 2 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
+        <a class="thumb"
+           href="https://play.google.com/store/apps/details?id=com.tinycell.slotlifejackpot&pcampaignid=web_share"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Open SLOT LIFE : Jackpot Journey on Google Play">
+          <!-- 파일명 추천: game.slotlife.png -->
+          <img src="game.slotlife.png" alt="SLOT LIFE : Jackpot Journey" />
+        </a>
+      </article>
 
-          <div class="game">
-            <img src="games/game3.png" alt="Game 3">
-            <h3>Game Title 3</h3>
-            <p>Short description for game 3 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
+      <!-- 2) Match Cat -->
+      <article class="card game">
+        <div class="text">
+          <h3>Match Cat : Triple Matching</h3>
+          <p>
+            Welcome to Matchy Cat!<br/>
+            Relax and enjoy a cute matching puzzle game filled with adorable cat-themed items.
+            Match three of a kind, clear the board, and unlock new sets as you play!
+          </p>
+          <div class="hint">Tip: Click the image to open Google Play.</div>
+        </div>
 
-          <div class="game">
-            <img src="games/game4.png" alt="Game 4">
-            <h3>Game Title 4</h3>
-            <p>Short description for game 4 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
+        <a class="thumb"
+           href="https://play.google.com/store/apps/details?id=com.tinycell.matchcat&pcampaignid=web_share"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Open Match Cat : Triple Matching on Google Play">
+          <!-- 파일명 추천: game.matchcat.png -->
+          <img src="game.matchcat.png" alt="Match Cat : Triple Matching" />
+        </a>
+      </article>
 
-          <div class="game">
-            <img src="games/game5.png" alt="Game 5">
-            <h3>Game Title 5</h3>
-            <p>Short description for game 5 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
+      <!-- 3) Watermelon Maker -->
+      <article class="card game">
+        <div class="text">
+          <h3>Watermelon Maker : Fruit Merge</h3>
+          <p>
+            “Watermelon Maker” is an addictive merge puzzle game where you combine small fruits to grow bigger fruits and ultimately create sweet, juicy watermelons.
+            With simple controls, anyone can enjoy the game, yet strategic merging adds depth and challenge.
+            Cute graphics and vibrant colors make every play visually delightful, and the satisfying merging animation gives a real sense of achievement and fun.
+          </p>
+          <div class="hint">Tip: Click the image to open Google Play.</div>
+        </div>
 
-          <div class="game">
-            <img src="games/game6.png" alt="Game 6">
-            <h3>Game Title 6</h3>
-            <p>Short description for game 6 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
+        <a class="thumb"
+           href="https://play.google.com/store/apps/details?id=com.tinycell.watermelonmaker&pcampaignid=web_share"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Open Watermelon Maker : Fruit Merge on Google Play">
+          <img src="game.watermelonmaker.png" alt="Watermelon Maker : Fruit Merge" />
+        </a>
+      </article>
 
-          <div class="game">
-            <img src="games/game7.png" alt="Game 7">
-            <h3>Game Title 7</h3>
-            <p>Short description for game 7 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
+    </section>
 
-          <div class="game">
-            <img src="games/game8.png" alt="Game 8">
-            <h3>Game Title 8</h3>
-            <p>Short description for game 8 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
+    <!-- CONTACT -->
+    <div class="section-title">Contact</div>
+    <section class="card">
+      <div class="contact-grid">
+        <div><strong>Email</strong>: <a class="btn" href="mailto:contact@tinycell.io">contact@tinycell.io</a></div>
+        <div><strong>Address</strong>: 510 53 Digital-ro 31-gil, Guro-gu 08375 Seoul</div>
 
-          <div class="game">
-            <img src="games/game9.png" alt="Game 9">
-            <h3>Game Title 9</h3>
-            <p>Short description for game 9 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
-
-          <div class="game">
-            <img src="games/game10.png" alt="Game 10">
-            <h3>Game Title 10</h3>
-            <p>Short description for game 10 goes here.</p>
-            <p><a class="btn" href="#" target="_blank">Play</a></p>
-          </div>
-
+        <div class="btn-row">
+          <!-- 구글맵 새 탭 열기 -->
+          <a class="btn" target="_blank" rel="noopener noreferrer"
+             href="https://www.google.com/maps?q=510%2053%20Digital-ro%2031-gil,%20Guro-gu%2008375%20Seoul">
+            Open Map
+          </a>
         </div>
       </div>
+    </section>
 
-      <!-- Contact -->
-      <div id="contact" class="section">
-        <h2>Contact</h2>
-
-        <p>
-          510 53 Digital-ro 31-gil, Guro-gu<br>
-          08375 Seoul, South Korea
-        </p>
-
-        <p>
-          Email:
-          <a href="mailto:contact@tinycell.io">contact@tinycell.io</a>
-        </p>
-
-        <!-- Map -->
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps?q=510+53+Digital-ro+31-gil,+Guro-gu,+Seoul&output=embed"
-            width="100%"
-            height="360"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy">
-          </iframe>
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <footer>
-        © <span id="year"></span> Tinycell. All rights reserved.
-      </footer>
-
+    <!-- MAP EMBED -->
+    <div class="map" aria-label="Tinycell location map">
+      <iframe
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=510%2053%20Digital-ro%2031-gil,%20Guro-gu%2008375%20Seoul&output=embed">
+      </iframe>
     </div>
+
+    <footer>
+      © <span id="y"></span> Tinycell. All rights reserved.
+    </footer>
   </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
